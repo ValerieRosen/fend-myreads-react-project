@@ -5,17 +5,17 @@ import './App.css'
 import { Route } from 'react-router-dom'
 
 import Mainpage from './components/pages/Mainpage'
-//import Searchpage from './components/pages/Searchpage'
+import Searchpage from './components/pages/Searchpage'
 
 class BooksApp extends React.Component {
   render() {
     return ( 
       <div>
         <Route exact path="/" component={ Mainpage } />
+        <Route exact path="/" component={ Searchpage } />
       </div>
     );
     
-  
     return (
       <div className="app">
         {this.state.showSearchPage ? (
