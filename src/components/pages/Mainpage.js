@@ -6,6 +6,13 @@ import Book from "../Book"
 import Shelf from "../Shelf"
 
 class Mainpage extends React.Component {
+    componentDidMount() {
+        BooksAPI.getAll()
+        .then(resp => {
+            console.log(resp);
+        });
+        }
+    
     render() {
         return (
             <div className="list-books">
