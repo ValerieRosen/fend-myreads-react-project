@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+//import { Link } from 'react-router-dom'
 
 import Book from './Book'
 
@@ -12,7 +12,7 @@ class Shelf extends React.Component {
                     <ol className="books-grid">
                     {
                      this.props.books.map((book, key) =>
-                     <Book updateBook = {this.props.updateBook} book={book} key={key} />)
+                     <Book updateBook={this.props.updateBook} book={book} key={key} />)
                     }
                     </ol>
                   </div>
