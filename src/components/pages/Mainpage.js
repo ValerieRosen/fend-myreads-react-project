@@ -29,9 +29,9 @@ class Mainpage extends React.Component {
             <div className="list-books-content">
               <div>
                 
-                <Shelf name="Currently Reading" books={this.state.books.filter(b => b.shelf, "currentlyreading")} />
-                <Shelf name="Wants To Read" books={this.state.books.filter(b => b.shelf, "wantstoread")} />
-                <Shelf name="Read" books={this.state.books.filter(b => b.shelf, "read")} />
+                <Shelf name="Currently Reading" books={this.state.books.filter(b => b.shelf === "currentlyreading")} />
+                <Shelf name="Wants To Read" books={this.state.books.filter(b => b.shelf === "wantstoread")} />
+                <Shelf name="Read" books={this.state.books.filter(b => b.shelf === "read")} />
             
                 </div>
                 </div>
