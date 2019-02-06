@@ -1,9 +1,31 @@
 import React from 'react'
-
 import { Link } from 'react-router-dom'
+import * as BooksAPI from '../BooksAPI'
 
 
 class Book extends React.Component {
+    constructor(props) {
+        super(props);
+            this.state = {
+                book: props.book
+            }
+        }
+    
+    componentDidMount() {
+        console.log(this);
+    }
+
+    updateBook(book, shelf) {
+        BooksAPI.update(book, shelf)
+        .then(resp => {
+            this.setState(state => {
+                let copy = state.book;
+                copy.shelf = shelf;
+                this.setState({ book:copy});
+            })
+        });
+      }
+
     render() {
         return (
                 <li>
@@ -11,7 +33,7 @@ class Book extends React.Component {
                      <div className="book-top">
                        <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: 'url("http://books.google.com/books/content?id=pD6arNyKyi8C&printsec=frontcover&img=1&zoom=1&imgtk=AFLRE70Rw0CCwNZh0SsYpQTkMbvz23npqWeUoJvVbi_gXla2m2ie_ReMWPl0xoU8Quy9fk0Zhb3szmwe8cTe4k7DAbfQ45FEzr9T7Lk0XhVpEPBvwUAztOBJ6Y0QPZylo4VbB7K5iRSk&source=gbs_api")' }}></div>
                        <div className="book-shelf-changer">
-                         <select>
+                         <select value={this.state.book.shelf} onChange={(event) => this.addToShelf(this.props.book, event.target.value)}>
                            <option value="move" disabled>Move to...</option>
                            <option value="currentlyReading">Currently Reading</option>
                            <option value="wantToRead">Want to Read</option>
@@ -20,8 +42,8 @@ class Book extends React.Component {
                          </select>
                        </div>
                      </div>
-                     <div className="book-title">The Hobbit</div>
-                     <div className="book-authors">J.R.R. Tolkien</div>
+                     <div className="book-title">{this.state.book.title}</div>
+                     <div className="book-authors">{this.state.book.authors[0]}</div>
                    </div>
                  </li>
         );
