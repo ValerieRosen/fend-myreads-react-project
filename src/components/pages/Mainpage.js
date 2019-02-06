@@ -6,10 +6,17 @@ import Book from "../Book"
 import Shelf from "../Shelf"
 
 class Mainpage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            books: []
+        }
+    }
     componentDidMount() {
         BooksAPI.getAll()
         .then(resp => {
             console.log(resp);
+            this.setState({ books: resp });
         });
         }
     
@@ -22,9 +29,9 @@ class Mainpage extends React.Component {
             <div className="list-books-content">
               <div>
                 
-                <Shelf />
-                <Shelf />
-                <Shelf />
+                <Shelf name="Currently Reading" books={this.state.books.filter(b => b.shelf, "currentlyreading")} />
+                <Shelf name="Wants To Read" books={this.state.books.filter(b => b.shelf, "wantstoread")} />
+                <Shelf name="Read" books={this.state.books.filter(b => b.shelf, "read")} />
             
                 </div>
                 </div>
