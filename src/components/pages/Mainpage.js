@@ -1,9 +1,8 @@
 import React from 'react'
 import * as BooksAPI from '../../BooksAPI'
 import { Link } from 'react-router-dom'
-import'../../App.css'
 import Shelf from '../Shelf'
-import Book from '../Book'
+
 
 class Mainpage extends React.Component {
     constructor(props) {
@@ -19,6 +18,17 @@ class Mainpage extends React.Component {
             this.setState({ books: resp });
         });
         }
+
+        
+        updateBook = (book, shelf) => {
+            BooksAPI.update(book, shelf)
+            .then(resp => {
+              book.shelf = shelf;
+              this.setState(state => ({
+                books: state.books.filter(b => b.id !== book.id).concat([book])
+              }));
+            });
+          }
     
     render() {
         return (
