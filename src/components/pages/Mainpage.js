@@ -1,9 +1,9 @@
 import React from 'react'
 import * as BooksAPI from '../../BooksAPI'
 import { Link } from 'react-router-dom'
-
-import Book from "../Book"
-import Shelf from "../Shelf"
+import'../../App.css'
+import Shelf from '../Shelf'
+import Book from '../Book'
 
 class Mainpage extends React.Component {
     constructor(props) {
@@ -30,7 +30,7 @@ class Mainpage extends React.Component {
               <div>
                 
                 <Shelf name="Currently Reading" books={this.state.books.filter(b => b.shelf === "currentlyreading")} />
-                <Shelf name="Wants To Read" books={this.state.books.filter(b => b.shelf === "wantstoread")} />
+                <Shelf name="Want To Read" books={this.state.books.filter(b => b.shelf === "wantstoread")} />
                 <Shelf name="Read" books={this.state.books.filter(b => b.shelf === "read")} />
             
                 </div>
