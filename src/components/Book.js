@@ -21,6 +21,8 @@ class Book extends React.Component {
                      </div>
                      <div className="book-title"><Link to={"/book/" + this.props.book.id}>{this.props.book.title}</Link></div>
                      <div className="book-authors">{this.props.book.authors && this.props.book.authors[0]}</div>
+                     <div className="book-authors">{this.props.book.authors && this.props.book.authors[1]}</div>
+                     <div className="book-authors">{this.props.book.authors && this.props.book.authors[2]}</div>
                    </div>
                  </li>
         );
