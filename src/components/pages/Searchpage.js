@@ -59,7 +59,7 @@ class Searchpage extends React.Component {
                 <div className="search-books-bar">
                   <Link className="close-search" to="/">Close</Link>
                   <div className="search-books-input-wrapper">
-                      <DebounceInput minlength={2} debounceTimeout={300} placeholder="Search by title or author" value={this.state.query}
+                      <DebounceInput minLength={3} debounceTimeout={350} placeholder="Search by title or author" value={this.state.query}
                           onChange={(event) => this.updateQuery(event.target.value)}/>
                   </div>
                 </div>
