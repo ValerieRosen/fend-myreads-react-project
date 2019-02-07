@@ -1,5 +1,4 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
 
 
 class Book extends React.Component {
@@ -19,7 +18,7 @@ class Book extends React.Component {
                          </select>
                        </div>
                      </div>
-                     <div className="book-title"><Link to={"/book/" + this.props.book.id}>{this.props.book.title}</Link></div>
+                     <div className="book-title">{this.props.book.title}</div>
                      <div className="book-authors">{this.props.book.authors && this.props.book.authors[0]}</div>
                      <div className="book-authors">{this.props.book.authors && this.props.book.authors[1]}</div>
                      <div className="book-authors">{this.props.book.authors && this.props.book.authors[2]}</div>
