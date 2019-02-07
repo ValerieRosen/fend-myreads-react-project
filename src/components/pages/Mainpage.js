@@ -16,6 +16,7 @@ class Mainpage extends React.Component {
         BooksAPI.getAll()
         .then(resp => {
             this.setState({ books: resp });
+            console.log(resp);
         });
     }
 
